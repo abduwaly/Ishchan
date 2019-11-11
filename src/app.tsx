@@ -37,14 +37,14 @@ class App extends Component {
         {
           pagePath: "pages/index/index",
           text: "Home",
-          // iconPath: "./images/tab/home.png",
-          // selectedIconPath: "./images/tab/home-active.png"
+          iconPath: "./assets/images/tab/home.png",
+          selectedIconPath: "./assets/images/tab/home-selected.png",
         },
         {
           pagePath: "pages/me/me",
           text: "Me",
-          // iconPath: "./images/tab/cart.png",
-          // selectedIconPath: "./images/tab/cart-active.png"
+          iconPath: "./assets/images/tab/me.png",
+          selectedIconPath: "./assets/images/tab/me-selected.png",
         },
       ],
     },

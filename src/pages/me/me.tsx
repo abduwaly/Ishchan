@@ -1,6 +1,6 @@
 import { ComponentClass } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Button, Text } from "@tarojs/components";
+import { View, Text } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 
 import { add, minus, asyncAdd } from "../../actions/counter";
@@ -41,7 +41,7 @@ interface Me {
 
 @connect(
   ({ counter }) => ({
-    counter
+    counter,
   }),
   dispatch => ({
     add() {
@@ -52,7 +52,7 @@ interface Me {
     },
     asyncAdd() {
       dispatch(asyncAdd());
-    }
+    },
   })
 )
 class Me extends Component {
@@ -64,7 +64,7 @@ class Me extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: "首页"
+    navigationBarTitleText: "Me",
   };
 
   componentWillReceiveProps(nextProps) {
@@ -80,18 +80,6 @@ class Me extends Component {
   render() {
     return (
       <View className="me">
-        <Button className="add_btn" onClick={this.props.add}>
-          +
-        </Button>
-        <Button className="dec_btn" onClick={this.props.dec}>
-          -
-        </Button>
-        <Button className="dec_btn" onClick={this.props.asyncAdd}>
-          async
-        </Button>
-        <View>
-          <Text>{this.props.counter.num}</Text>
-        </View>
         <View>
           <Text>Hello, World</Text>
         </View>
