@@ -5,7 +5,7 @@ import { connect } from "@tarojs/redux";
 
 import { add, minus, asyncAdd } from "../../actions/counter";
 
-import "./index.scss";
+import "./me.scss";
 
 // #region 书写注意
 //
@@ -35,7 +35,7 @@ type PageState = {};
 
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps;
 
-interface Index {
+interface Me {
   props: IProps;
 }
 
@@ -55,7 +55,7 @@ interface Index {
     }
   })
 )
-class Index extends Component {
+class Me extends Component {
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -79,12 +79,12 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="index">
+      <View className="me">
         <Button className="add_btn" onClick={this.props.add}>
-          +1
+          +
         </Button>
         <Button className="dec_btn" onClick={this.props.dec}>
-          -1
+          -
         </Button>
         <Button className="dec_btn" onClick={this.props.asyncAdd}>
           async
@@ -92,17 +92,8 @@ class Index extends Component {
         <View>
           <Text>{this.props.counter.num}</Text>
         </View>
-        <Button
-          onClick={() =>
-            Taro.navigateTo({
-              url: "/pages/me/me"
-            })
-          }
-        >
-          me
-        </Button>
         <View>
-          <Text>Hello, World!</Text>
+          <Text>Hello, World</Text>
         </View>
       </View>
     );
@@ -116,4 +107,4 @@ class Index extends Component {
 //
 // #endregion
 
-export default Index as ComponentClass<PageOwnProps, PageState>;
+export default Me as ComponentClass<PageOwnProps, PageState>;
