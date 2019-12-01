@@ -1,11 +1,12 @@
 import { ComponentClass } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Button, Text } from "@tarojs/components";
+import { View, Button, Text, Swiper, SwiperItem } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 
 import { add, minus, asyncAdd } from "../../actions/counter";
 
 import "./index.scss";
+import ServiceItem from "../../components/serviceItem";
 
 // #region 书写注意
 //
@@ -80,7 +81,29 @@ class Index extends Component {
   render() {
     return (
       <View className="index">
-        <Button className="add_btn" onClick={this.props.add}>
+        <Swiper
+          className="test-h"
+          indicatorColor="#999"
+          indicatorActiveColor="#333"
+          circular
+          indicatorDots
+          autoplay
+        >
+          <SwiperItem className="item">
+            <View className="at-icon at-icon-camera" />
+          </SwiperItem>
+          <SwiperItem className="item">
+            <View className="at-icon at-icon-image" />
+          </SwiperItem>
+          <SwiperItem className="item">
+            <View className="at-icon at-icon-video" />
+          </SwiperItem>
+        </Swiper>
+
+        <ServiceItem />
+        <ServiceItem />
+        <ServiceItem />
+        {/* <Button className="add_btn" onClick={this.props.add}>
           +1
         </Button>
         <Button className="dec_btn" onClick={this.props.dec}>
@@ -103,7 +126,7 @@ class Index extends Component {
         </Button>
         <View>
           <Text>Hello, World!</Text>
-        </View>
+        </View> */}
       </View>
     );
   }
