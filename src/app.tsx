@@ -3,6 +3,7 @@ import Taro, { Component, Config } from "@tarojs/taro";
 import { Provider } from "@tarojs/redux";
 
 import Index from "./pages/index";
+import Analytics from "./pages/analytics/analytics";
 
 import configStore from "./store";
 
@@ -25,7 +26,7 @@ class App extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    pages: ["pages/index/index", "pages/me/me"],
+    pages: ["pages/index/index", "pages/me/me", "pages/analytics/analytics"],
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
@@ -39,6 +40,12 @@ class App extends Component {
           text: "Home",
           iconPath: "./assets/images/tab/home.png",
           selectedIconPath: "./assets/images/tab/home-selected.png",
+        },
+        {
+          pagePath: "pages/analytics/analytics",
+          text: "Analytics",
+          iconPath: "./assets/images/tab/analytics.png",
+          selectedIconPath: "./assets/images/tab/analytics-selected.png",
         },
         {
           pagePath: "pages/me/me",
@@ -64,6 +71,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Index />
+        <Analytics />
       </Provider>
     );
   }
