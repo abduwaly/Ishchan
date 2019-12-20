@@ -10,7 +10,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx", ".tsx"]
+        "extensions": [".js", ".jsx", ".tsx", ".ts"]
       }
     ],
     "no-extra-semi": "error",

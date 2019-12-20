@@ -41,7 +41,7 @@ interface Analytics {
 
 @connect(
   ({ counter }) => ({
-    counter,
+    counter
   }),
   dispatch => ({
     add() {
@@ -52,7 +52,7 @@ interface Analytics {
     },
     asyncAdd() {
       dispatch(asyncAdd());
-    },
+    }
   })
 )
 class Analytics extends Component {
@@ -64,7 +64,7 @@ class Analytics extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: "Analytics",
+    navigationBarTitleText: "Analytics"
   };
 
   componentWillReceiveProps(nextProps) {

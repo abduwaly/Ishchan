@@ -41,7 +41,7 @@ interface Me {
 
 @connect(
   ({ counter }) => ({
-    counter,
+    counter
   }),
   dispatch => ({
     add() {
@@ -52,7 +52,7 @@ interface Me {
     },
     asyncAdd() {
       dispatch(asyncAdd());
-    },
+    }
   })
 )
 class Me extends Component {
@@ -64,7 +64,7 @@ class Me extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: "Me",
+    navigationBarTitleText: "Me"
   };
 
   componentWillReceiveProps(nextProps) {

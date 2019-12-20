@@ -31,7 +31,7 @@ class App extends Component {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
       navigationBarTitleText: "WeChat",
-      navigationBarTextStyle: "black",
+      navigationBarTextStyle: "black"
     },
     tabBar: {
       list: [
@@ -39,22 +39,22 @@ class App extends Component {
           pagePath: "pages/index/index",
           text: "Home",
           iconPath: "./assets/images/tab/home.png",
-          selectedIconPath: "./assets/images/tab/home-selected.png",
+          selectedIconPath: "./assets/images/tab/home-selected.png"
         },
         {
           pagePath: "pages/analytics/analytics",
           text: "Analytics",
           iconPath: "./assets/images/tab/analytics.png",
-          selectedIconPath: "./assets/images/tab/analytics-selected.png",
+          selectedIconPath: "./assets/images/tab/analytics-selected.png"
         },
         {
           pagePath: "pages/me/me",
           text: "Me",
           iconPath: "./assets/images/tab/me.png",
-          selectedIconPath: "./assets/images/tab/me-selected.png",
-        },
-      ],
-    },
+          selectedIconPath: "./assets/images/tab/me-selected.png"
+        }
+      ]
+    }
   };
 
   componentDidMount() {}

@@ -22,13 +22,13 @@ class ServiceItem extends Taro.Component {
   constructor() {
     super(...arguments);
     this.state = {
-      open: true,
+      open: true
     };
   }
 
   handleClick(value) {
     this.setState({
-      open: value,
+      open: value
     });
   }
 
@@ -39,28 +39,28 @@ class ServiceItem extends Taro.Component {
         {
           value: "领取中心",
           iconInfo: {
-            value: "bell",
-          },
+            value: "bell"
+          }
         },
         {
           value: "领取中心",
           iconInfo: {
-            value: "bell",
-          },
+            value: "bell"
+          }
         },
         {
           value: "领取中心",
           iconInfo: {
-            value: "bell",
-          },
+            value: "bell"
+          }
         },
         {
           value: "领取中心",
           iconInfo: {
-            value: "bell",
-          },
-        },
-      ],
+            value: "bell"
+          }
+        }
+      ]
     };
 
     return (

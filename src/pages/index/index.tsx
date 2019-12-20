@@ -42,7 +42,7 @@ interface Index {
 
 @connect(
   ({ counter }) => ({
-    counter,
+    counter
   }),
   dispatch => ({
     add() {
@@ -53,7 +53,7 @@ interface Index {
     },
     asyncAdd() {
       dispatch(asyncAdd());
-    },
+    }
   })
 )
 class Index extends Component {
@@ -65,7 +65,7 @@ class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: "Home",
+    navigationBarTitleText: "Home"
   };
 
   componentWillReceiveProps(nextProps) {
