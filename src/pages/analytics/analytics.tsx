@@ -6,6 +6,7 @@ import { connect } from "@tarojs/redux";
 import { add, minus, asyncAdd } from "../../actions/counter";
 
 import "./analytics.scss";
+import { get } from "./../../utils/request";
 
 // #region 书写注意
 //
@@ -73,7 +74,20 @@ class Analytics extends Component {
 
   componentWillUnmount() {}
 
-  componentDidShow() {}
+  componentDidShow() {
+    () => {
+      console.log("1");
+    };
+    get(
+      "",
+      () => {
+        console.log(2);
+      },
+      () => {
+        console.log(3);
+      }
+    );
+  }
 
   componentDidHide() {}
 
