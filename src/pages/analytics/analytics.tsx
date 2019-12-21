@@ -4,9 +4,9 @@ import { View, Button, Text } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 
 import { add, minus, asyncAdd } from "../../actions/counter";
+import { login } from "../../actions/login";
 
 import "./analytics.scss";
-import { get } from "./../../utils/request";
 
 // #region 书写注意
 //
@@ -75,18 +75,7 @@ class Analytics extends Component {
   componentWillUnmount() {}
 
   componentDidShow() {
-    () => {
-      console.log("1");
-    };
-    get(
-      "",
-      () => {
-        console.log(2);
-      },
-      () => {
-        console.log(3);
-      }
-    );
+    login();
   }
 
   componentDidHide() {}

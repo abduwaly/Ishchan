@@ -1,7 +1,6 @@
 import Taro from "@tarojs/taro";
 
-// const url = "https://tcb-api.tencentcloudapi.com/";
-const url = "http://localhost:8080/";
+const url = "https://xjtulpar.com/";
 
 export function get(path: string, onSuccess: Function, onError?: Function) {
   Taro.request({
@@ -29,7 +28,7 @@ export function post(
     data: data,
     method: "POST",
     header: {
-      "content-type": "application/json"
+      "content-type": "application/x-www-form-urlencoded"
     }
   })
     .then(res => {
