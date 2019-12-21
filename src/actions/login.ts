@@ -1,3 +1,4 @@
+import Taro from "@tarojs/taro";
 import { post } from "../utils/request";
 
 const userCredentials = {
@@ -6,5 +7,15 @@ const userCredentials = {
 };
 
 export function login() {
-  post("user/login", userCredentials, () => {});
+  post("user/login", userCredentials, res => {
+    console.log("res:", res);
+    Taro.setStorage({
+      key: "cookie",
+      data: res.cookies[0]
+    })
+      .then(msg => {
+        console.log("Login Succeed !", msg);
+      })
+      .catch(err => console.error("Login Failed !", err));
+  });
 }
