@@ -1,6 +1,6 @@
 import { ComponentClass } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Button, Text, Swiper, SwiperItem } from "@tarojs/components";
+import { View, Swiper, SwiperItem } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 
 import { add, minus, asyncAdd } from "../../actions/counter";

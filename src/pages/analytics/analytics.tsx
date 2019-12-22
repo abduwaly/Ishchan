@@ -21,6 +21,7 @@ type PageStateProps = {
   counter: {
     num: number;
   };
+  user: object;
 };
 
 type PageDispatchProps = {
@@ -40,12 +41,16 @@ interface Analytics {
 }
 
 @connect(
-  ({ counter }) => ({
-    counter
+  state => ({
+    counter: state.counter,
+    user: state.account
   }),
   dispatch => ({
     add() {
       dispatch(add());
+      Taro.navigateTo({
+        url: "/pages/login/login"
+      });
     },
     dec() {
       dispatch(minus());
@@ -91,7 +96,9 @@ class Analytics extends Component {
           async
         </Button>
         <View>
-          <Text>{this.props.counter.num}</Text>
+          <Text>
+            {this.props.counter.num},{JSON.stringify(this.props.user)}
+          </Text>
         </View>
         <View>
           <Text>Hello, World</Text>
