@@ -1,12 +1,12 @@
 import Taro from "@tarojs/taro";
 
-const url = "https://xjtulpar.com/";
+const domain = "https://xjtulpar.com/";
 
 export function get(path: string, onSuccess: Function, onError?: Function) {
   const cookie = Taro.getStorageSync("cookie");
 
   Taro.request({
-    url: url + path,
+    url: domain + path,
     method: "GET",
     header: {
       cookie: cookie
@@ -31,7 +31,7 @@ export function post(
   const cookie = Taro.getStorageSync("cookie");
 
   Taro.request({
-    url: url + path,
+    url: domain + path,
     data: data,
     method: "POST",
     header: {
