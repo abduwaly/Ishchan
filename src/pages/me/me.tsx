@@ -3,6 +3,7 @@ import Taro, { Component, Config } from "@tarojs/taro";
 import { AtForm, AtInput, AtButton } from "taro-ui";
 import { View } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
+import md5 from "md5";
 
 import { login } from "../../actions/login";
 import { add, minus, asyncAdd } from "../../actions/counter";
@@ -103,7 +104,8 @@ class Me extends Component {
   }
 
   onSubmit() {
-    login();
+    const { name, password } = this.state;
+    login({ name, password: md5(password) });
   }
   onReset(event) {
     console.log(event);
