@@ -1,9 +1,10 @@
 import { ComponentClass } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
+import { AtForm, AtInput, AtButton } from "taro-ui";
+import { View } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
-import { login } from "../../actions/login";
 
+import { login } from "../../actions/login";
 import { add, minus, asyncAdd } from "../../actions/counter";
 
 import "./me.scss";
@@ -32,12 +33,16 @@ type PageDispatchProps = {
 
 type PageOwnProps = {};
 
-type PageState = {};
+type PageState = {
+  name: string;
+  password: string;
+};
 
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps;
 
 interface Me {
   props: IProps;
+  state: PageState;
 }
 
 @connect(
@@ -57,6 +62,13 @@ interface Me {
   })
 )
 class Me extends Component {
+  constructor() {
+    super(...arguments);
+    this.state = {
+      name: "",
+      password: ""
+    };
+  }
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -74,17 +86,60 @@ class Me extends Component {
 
   componentWillUnmount() {}
 
-  componentDidShow() {
-    login();
-  }
+  componentDidShow() {}
 
   componentDidHide() {}
+
+  handleNameChange(value) {
+    this.setState({
+      name: value
+    });
+  }
+
+  handlePasswordChange(value) {
+    this.setState({
+      password: value
+    });
+  }
+
+  onSubmit() {
+    login();
+  }
+  onReset(event) {
+    console.log(event);
+  }
 
   render() {
     return (
       <View className="me">
         <View>
-          <Text>Hello, World</Text>
+          <AtForm
+            onSubmit={this.onSubmit.bind(this)}
+            onReset={this.onReset.bind(this)}
+          >
+            <AtInput
+              name="user"
+              title="User Name"
+              type="text"
+              placeholder="Input your user name"
+              value={this.state.name}
+              onChange={this.handleNameChange.bind(this)}
+            />
+            <AtInput
+              name="password"
+              title="Password"
+              type="text"
+              placeholder="Input your password"
+              value={this.state.password}
+              onChange={this.handlePasswordChange.bind(this)}
+            />
+            <AtButton type="primary" formType="submit">
+              Login
+            </AtButton>
+            <AtButton type="secondary" formType="reset">
+              Reset
+            </AtButton>
+          </AtForm>
         </View>
       </View>
     );
