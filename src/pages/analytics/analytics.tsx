@@ -6,7 +6,6 @@ import { connect } from "@tarojs/redux";
 import { add, minus, asyncAdd } from "../../actions/counter";
 
 import "./analytics.scss";
-import { get } from "../../utils/request";
 
 // #region 书写注意
 //
@@ -74,9 +73,7 @@ class Analytics extends Component {
 
   componentWillUnmount() {}
 
-  componentDidShow() {
-    get("userBusiness/getBasicData?KeyId=120&Type=RoleFunctions", () => {});
-  }
+  componentDidShow() {}
 
   componentDidHide() {}
 

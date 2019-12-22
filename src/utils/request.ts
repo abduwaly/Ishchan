@@ -13,8 +13,17 @@ export function get(path: string, onSuccess: Function, onError?: Function) {
     }
   })
     .then(res => {
-      console.log(res.data, res.statusCode, res.header);
-      onSuccess(res);
+      console.log("success:", res);
+
+      // TODO: Below code handle invalid/outdated session.(will refactor)
+      if (typeof res.data === "string") {
+        console.error("Invalid Session");
+        Taro.navigateTo({
+          url: "/pages/login/login"
+        });
+      } else {
+        onSuccess(res);
+      }
     })
     .catch(err => {
       console.error(err);
@@ -40,8 +49,17 @@ export function post(
     }
   })
     .then(res => {
-      console.log(res.data, res.statusCode, res.header);
-      onSuccess(res);
+      console.log("success:", res);
+
+      // TODO: Below code handle invalid/outdated session.(will refactor)
+      if (typeof res.data === "string") {
+        console.error("Invalid Session");
+        Taro.navigateTo({
+          url: "/pages/login/login"
+        });
+      } else {
+        onSuccess(res);
+      }
     })
     .catch(err => {
       console.error(err);
