@@ -3,9 +3,14 @@ import Taro from "@tarojs/taro";
 const url = "https://xjtulpar.com/";
 
 export function get(path: string, onSuccess: Function, onError?: Function) {
+  const cookie = Taro.getStorageSync("cookie");
+
   Taro.request({
     url: url + path,
-    method: "GET"
+    method: "GET",
+    header: {
+      cookie: cookie
+    }
   })
     .then(res => {
       console.log(res.data, res.statusCode, res.header);
@@ -23,12 +28,15 @@ export function post(
   onSuccess: Function,
   onError?: Function
 ) {
+  const cookie = Taro.getStorageSync("cookie");
+
   Taro.request({
     url: url + path,
     data: data,
     method: "POST",
     header: {
-      "content-type": "application/x-www-form-urlencoded"
+      "content-type": "application/x-www-form-urlencoded",
+      cookie: cookie
     }
   })
     .then(res => {

@@ -4,9 +4,9 @@ import { View, Button, Text } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
 
 import { add, minus, asyncAdd } from "../../actions/counter";
-import { login } from "../../actions/login";
 
 import "./analytics.scss";
+import { get } from "../../utils/request";
 
 // #region 书写注意
 //
@@ -75,7 +75,7 @@ class Analytics extends Component {
   componentWillUnmount() {}
 
   componentDidShow() {
-    login();
+    get("userBusiness/getBasicData?KeyId=120&Type=RoleFunctions", () => {});
   }
 
   componentDidHide() {}
